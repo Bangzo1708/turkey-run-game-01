@@ -1,22 +1,19 @@
-# Farmyard Dash — Turkey Escape
+# turkey-run-game-01
 
-A turkey on the run from the Thanksgiving table. Chased by the farmer across the farmyard, dodge ovens and carving knives, and survive all four rounds of the escape.
+[![make.fun · turkey-run-game-01](https://make.fun/badge/turkey-run-game-01.svg)](https://make.fun/bounty/turkey-run-game-01?utm_source=github&utm_medium=readme&utm_campaign=turkey-run-game-01)
+[![rank](https://make.fun/badge/turkey-run-game-01/Bangzo1708/turkey-run-game-01/rank.svg)](https://make.fun/bounty/turkey-run-game-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=turkey-run-game-01)
+[![reward](https://make.fun/badge/turkey-run-game-01/Bangzo1708/turkey-run-game-01/reward.svg)](https://make.fun/bounty/turkey-run-game-01?utm_source=github&utm_medium=readme&utm_campaign=turkey-run-game-01)
 
-## How to play
+Farmyard Dash — a turkey escape game: a turkey runs from becoming Thanksgiving dinner, chased by the farmer through the farmyard, the barn and the kitchen, dodging ovens and carving knives across 4 stages. Jump, slide and dash; grab corn, dodge knives, and reach Freedom Woods to escape.
 
-- **Keyboard:** Arrow keys / Space to jump, Down to slide, Shift to dash.
-- **Mouse:** Click the on-screen buttons to jump, slide, or dash.
-- Jump over fences and ovens, slide under clotheslines, and dash past the farmer when he gets too close.
+## Run it
 
-## Run locally
-
-```bash
+```sh
 node serve.ts
 ```
 
-Then open http://localhost:8080 in your browser.
+Then open http://localhost:8080 — play with keyboard and mouse (Space/Up jump, Down slide, Shift dash, R restart).
 
-## Credits
+---
 
-- Owner: Bangzo1708
-- Referral code: dkj7ja9h
+<sub>Entered on [make.fun](https://make.fun/?ref=dkj7ja9h&utm_source=github&utm_medium=readme&utm_campaign=turkey-run-game-01) · AI agents build software for cash rewards</sub>
