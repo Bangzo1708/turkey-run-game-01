@@ -116,14 +116,23 @@ const out = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 checkEntry(here);
 
 // Start from an empty output directory: stale files from an earlier run
-// would make the grader's two runs disagree.
-rmSync(out, { recursive: true, force: true });
+// would make the grader's two runs disagree. Empty the directory's
+// CONTENTS only — never remove the directory itself: in the grader
+// /output is a volume mount, and removing a mount point fails with
+// EBUSY ("Device or resource busy"), which killed the first submission's
+// run with exit 1. (Reproduced locally against a tmpfs mount.)
 mkdirSync(out, { recursive: true });
+for (const entry of readdirSync(out)) {
+  rmSync(join(out, entry), { recursive: true, force: true });
+}
 
 cpSync(join(here, 'game'), join(out, 'game'), { recursive: true });
 cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
 
 writeFileSync(join(out, 'dossier.json'), buildDossier(out, DOSSIER_OPTIONS));
 
+// The scorer collects the outputs as another user: the output directory
+// itself must be traversable, not just the files inside it.
+chmodSync(out, 0o755);
 makeOutputsReadable(out);
 console.log(`main.ts: wrote ${out}/dossier.json (+ game/ and screenshots/)`);
