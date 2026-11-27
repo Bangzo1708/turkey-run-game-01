@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Turkey Run — Escape Thanksgiving Dinner</title>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #2a1a0c; }
+    body {
+      font-family: "Trebuchet MS", Verdana, sans-serif;
+      color: #fff3d6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px;
+    }
+    #stage {
+      position: relative;
+      width: min(1280px, 100%);
+      aspect-ratio: 1280 / 720;
+      box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #ffb36b;
+    }
+    canvas { display: block; width: 100%; height: 100%; }
+    .menu-btn {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 92px;
+      z-index: 3;
+      font: bold 22px "Trebuchet MS", Verdana, sans-serif;
+      color: #fff;
+      background: #ff7a1a;
+      border: 3px solid #fff3d6;
+      border-radius: 14px;
+      padding: 12px 34px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #b34d00;
+    }
+    .menu-btn:hover { background: #ff8c38; }
+    .menu-btn:active { transform: translateX(-50%) translateY(3px); box-shadow: 0 1px 0 #b34d00; }
+    #btn-again { bottom: 132px; }
+    .hidden { display: none; }
+    #btn-mute {
+      position: absolute;
+      top: 92px;
+      right: 10px;
+      z-index: 3;
+      font: bold 13px "Trebuchet MS", Verdana, sans-serif;
+      color: #fff3d6;
+      background: rgba(40, 20, 8, 0.72);
+      border: 1px solid rgba(255, 243, 214, 0.5);
+      border-radius: 8px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    #help {
+      font-size: 14px;
+      text-align: center;
+      opacity: 0.9;
+      max-width: 1280px;
+    }
+    #help b { color: #ffd98a; }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="1280" height="720"></canvas>
+    <button id="btn-start" class="menu-btn">▶ START RUNNING</button>
+    <button id="btn-again" class="menu-btn hidden">↻ RUN AGAIN</button>
+    <button id="btn-mute">🔊 Sound on</button>
+  </div>
+  <p id="help">
+    <b>Turkey Run</b> — Tom the turkey is on the Thanksgiving menu, and Farmer Jed is coming for him.
+    <b>Space / ↑ / Click</b> jump (twice for a double jump) · <b>↓ / S</b> slide · <b>Shift / X</b> dash ·
+    <b>P</b> pause · <b>R</b> restart · <b>M</b> mute. Grab corn, dodge knives and the oven, and reach the Freedom Gate 1500 m away.
+  </p>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
