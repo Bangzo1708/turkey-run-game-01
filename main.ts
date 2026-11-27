@@ -131,8 +131,10 @@ cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true })
 
 writeFileSync(join(out, 'dossier.json'), buildDossier(out, DOSSIER_OPTIONS));
 
-// The scorer collects the outputs as another user: the output directory
-// itself must be traversable, not just the files inside it.
-chmodSync(out, 0o755);
+// NOTE: do NOT chmod the output directory itself — in the grader it is
+// owned by another user (writable but not ours), so chmodSync(out)
+// throws EPERM and kills the run with exit 1 (second rejection).
+// Only the files and folders this program creates inside it are
+// chmodded, and those it owns, so those chmods succeed.
 makeOutputsReadable(out);
 console.log(`main.ts: wrote ${out}/dossier.json (+ game/ and screenshots/)`);
